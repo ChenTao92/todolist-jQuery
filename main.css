@@ -1,0 +1,109 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4em;
+  background-color: #F5F5F5;
+}
+
+main {
+  width: 600px;
+  margin: auto;
+}
+
+#title {
+  width: 100%;
+  font-size: 100px;
+  font-weight: 100;
+  text-align: center;
+  color: rgba(175, 47, 47, 0.15);
+}
+
+#new-todo {
+  box-sizing: border-box;
+  outline:none;
+  width: 100%;
+  font-size: 24px;
+  padding: 16px 16px 16px 60px;
+  border: none;
+  box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+
+#todolist-area {
+  position: relative;
+  width: 100%;
+}
+
+#toggle-all {
+  position: absolute;
+  top: -55px;
+  left: -12px;
+  width: 60px;
+  height: 34px;
+  text-align: center;
+  border: none;
+  outline: none;
+  transform: rotate(90deg);/*将旋转元素90°*/
+  -webkit-appearance: none;/*//使元素看上去像标准的用户界面元素，这里为“none”，且必须放最后才有效*/
+}
+
+#toggle-all:before {
+  content: '❯';
+  font-size: 24px;
+  color: #e6e6e6;
+  padding: 10px 27px 10px 27px;
+}
+
+
+#todolist-all {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+  background: #FFF;
+}
+
+.active {
+  position: relative;
+}
+
+.active > p {
+  display: inline-block;
+}
+
+.toggle {
+  display: inline-block;
+}
+
+.delete {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  font-size: 30px;
+  color: #cc9a9a;
+  margin-bottom: 11px;
+}
+
+.delete:after {
+  content: '×';
+  color: #af5b5e;
+}
+
+
+
+
+
+
+
+
+
+footer > p {
+  text-align: center;
+  color: #CFCFCF;
+  padding-top: 50px;
+}
