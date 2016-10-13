@@ -1,4 +1,5 @@
 var counter = 0;
+var $todolist;
 
 // 按下Enter键添加todo事件
 $('#new-todo').keydown(function (event) {
@@ -16,9 +17,20 @@ $('#new-todo').keydown(function (event) {
     }
     if (valid) {
       counter++;
-      var $todolist = $('<li class="active"><input type="checkbox" class="toggle"/><p>'+task+'</p><button class="delete"></button></li>');
+      $todolist = $('<li class="active"><input type="checkbox" class="toggle"/><p>'+task+'</p><button class="delete"></button></li>');
       $('#todolist-all').append($todolist);
       $('#new-todo').val("");
     }
   }
+  // 点击X按钮删除todo事件
+  $('.delete').click(function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    $(this).parent().remove();
+  })
 })
+
+
+
+
+
