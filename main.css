@@ -1,3 +1,10 @@
+/*
+* @Author: taochen
+* @Date:   2016-10-14 06:00:55
+* @Last Modified by:   taochen
+* @Last Modified time: 2016-10-18 17:02:12
+*/
+
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -53,54 +60,63 @@ main {
   padding: 10px 27px 10px 27px;
 }
 
-
 #todolist-all {
   padding: 0;
   margin: 0;
 }
 
-li {
+#todolist-all > li {
   list-style-type: none;
   background: #FFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0 12px 10px;
 }
 
-.active {
-  position: relative;
+#todolist-all > li > div {
+  width: 80%;
 }
 
-.active > p {
-  display: inline-block;
+
+#todolist-all > li > div > p {
+  /*width: 70%;*/
+  margin: 0;
+  font-size: 24px;
+  color: #4d4d4d;
+  height: 34px;
+  display: flex;
+  align-items: center;
+}
+
+#todolist-all > li > div > p > input {
+  width: 100%;
+  margin: 0;
+  font-size: 24px;
+  color: #4d4d4d;
+  padding-left: 0;
+  border-left-width:0;
+}
+
+.completed > div > p {
+  text-decoration: line-through;
+  color: #D9D9D9 !important;
 }
 
 .toggle {
-  display: inline-block;
+  /*display: inline-block;*/
 }
 
 .delete {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  bottom: 0;
-  width: 40px;
-  height: 40px;
-  margin: auto 0;
+  cursor: pointer;
+  width: 30px;
   font-size: 30px;
-  color: #cc9a9a;
-  margin-bottom: 11px;
 }
 
-.delete:after {
+.delete:before {
   content: '×';
   color: #af5b5e;
 }
-
-
-
-
-
-
-
-
 
 #todolist-filter {
   background: #FFF;
@@ -112,6 +128,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  display: none;
 }
 
 #todolist-filter > #filters {
@@ -119,7 +136,11 @@ li {
   justify-content: space-between;
 }
 
-#filters li a {
+#filters > li {
+  list-style-type: none;
+}
+
+#filters > li > a {
   margin: 3px;
   padding: 3px 7px;
   text-decoration: none;
@@ -127,12 +148,9 @@ li {
   border-radius: 3px;
 }
 
-#filters li a.selected {
+.selected {
   border-color: rgba(175, 47, 47, 0.2);
 }
-
-
-
 
 footer > p {
   text-align: center;

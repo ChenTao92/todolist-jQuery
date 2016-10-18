@@ -1,3 +1,10 @@
+<!-- 
+* @Author: taochen
+* @Date:   2016-10-14 19:08:23
+* @Last Modified by:   taochen
+* @Last Modified time: 2016-10-18 16:59:24
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,22 +19,37 @@
   <main>
 
     <h1 id="title">todos</h1>
-    <input id="new-todo" type="text" placeholder="What needs to be done?" autofocus />
 
+    <!-- 输入todo -->
+    <input id="new-todo" type="text" placeholder="What needs to be done?" autofocus />
+    
+    <!-- 展现todo -->
     <section id="todolist-area">
       <input type="checkbox" id="toggle-all" />
       <ul id="todolist-all"></ul>
     </section>
 
+
+    <!-- 过滤todo状态，注意一开始这个是隐藏的-->
     <section id="todolist-filter">
       <span id="todo-count">0 item left</span>
       <ul id="filters">
-        <li><a href="">All</a></li>
-        <li><a href="">Active</a></li>
-        <li><a href="">Completed</a></li>
+        <li id="all"><a href="#/all">All</a></li>
+        <li id="active"><a href="#/active">Active</a></li>
+        <li id="completed"><a href="#/completed">Completed</a></li>
       </ul>
       <button id="clear-completed">Clear completed</button>
     </section>
+    
+    <!-- 每个新添加的todo都是这个结构，这里做为一个模板写在这里以便调用 -->
+    <li id="todo-template" style="display: none;">
+      <input type="checkbox" class="toggle"/>
+      <div>
+        <p></p>
+        <span class="timestamp"></span>
+      </div>
+      <span class="delete"></span>
+    </li>
 
     <footer>
       <p>TodoList - jQuery by TC</p>
