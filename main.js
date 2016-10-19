@@ -2,7 +2,7 @@
 * @Author: taochen
 * @Date:   2016-10-14 18:46:43
 * @Last Modified by:   taochen
-* @Last Modified time: 2016-10-18 18:18:24
+* @Last Modified time: 2016-10-19 15:14:51
 */
 
 var counter = 0;
@@ -109,19 +109,27 @@ $('#new-todo').keydown(function (evt) {
 $('#all').click(function(){
   $('.active').show();
   $('.completed').show();
-  $(this).addClass('.selected')
+  $(this).addClass('selected');
+  $('#completed').removeClass('selected');
+  $('#active').removeClass('selected');
 })
 
 // 显示未完成任务
 $('#active').click(function(){
   $('.active').show();
   $('.completed').hide();
+  $(this).addClass('selected');
+  $('#completed').removeClass('selected');
+  $('#all').removeClass('selected');
 })
 
 // 显示已完成任务
 $('#completed').click(function(){
   $('.active').hide();
   $('.completed').show();
+  $(this).addClass('selected');
+  $('#active').removeClass('selected');
+  $('#all').removeClass('selected');
 })
 
 // 删除所有完成的事项
