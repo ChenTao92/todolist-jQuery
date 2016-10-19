@@ -2,7 +2,7 @@
 * @Author: taochen
 * @Date:   2016-10-14 18:46:43
 * @Last Modified by:   taochen
-* @Last Modified time: 2016-10-19 16:05:20
+* @Last Modified time: 2016-10-19 17:09:59
 */
 
 var counter = 0;
@@ -47,15 +47,17 @@ $('#new-todo').keydown(function (evt) {
     // 点击X按钮删除todo事项
     $todolist.find('.delete').click(function (evt) {
       $(this).parent().remove();
-      if($(this).parent().hasClass('completed')) return
-      counter--;
-      if (counter > 1) {
-        $('#todo-count').text(counter +' items left')
-      } else {
-        $('#todo-count').text(counter +' item left')
+      if(!$(this).parent().hasClass('completed')) {
+        counter--;
+        if (counter > 1) {
+          $('#todo-count').text(counter +' items left')
+        } else {
+          $('#todo-count').text(counter +' item left')
+        }
       }
-
-      if (counter === 0) {
+      // 判断过滤栏是否需要隐藏
+      var hasCompleted = $('#todolist-all').find('li').hasClass('completed');
+      if (counter === 0 && !hasCompleted) {
         $('#todolist-filter').hide()
       }
     })
