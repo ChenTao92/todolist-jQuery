@@ -2,7 +2,7 @@
 * @Author: taochen
 * @Date:   2016-10-14 18:46:43
 * @Last Modified by:   taochen
-* @Last Modified time: 2016-10-19 15:14:51
+* @Last Modified time: 2016-10-19 16:05:20
 */
 
 var counter = 0;
@@ -65,11 +65,17 @@ $('#new-todo').keydown(function (evt) {
     $todolist.find('input').click(function(evt){
       if ($(this).parent().hasClass('active')) {
         $(this).parent().removeClass('active').addClass('completed');
+        if($('#active').hasClass('selected')){
+          $(this).parent().hide();
+        }
         var timestamp = moment().format('lll');
         $(this).parent().find('.timestamp').text(timestamp)
         counter--;
       } else {
         $(this).parent().removeClass('completed').addClass('active');
+        if($('#completed').hasClass('selected')){
+          $(this).parent().hide();
+        }
         $(this).parent().find('.timestamp').text('')
         counter++;
       }
