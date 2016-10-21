@@ -2,7 +2,7 @@
 * @Author: taochen
 * @Date:   2016-10-14 18:46:43
 * @Last Modified by:   taochen
-* @Last Modified time: 2016-10-19 17:09:59
+* @Last Modified time: 2016-10-21 18:23:31
 */
 
 var counter = 0;
@@ -26,7 +26,12 @@ $('#new-todo').keydown(function (evt) {
 
 
     // 选出模板，克隆一份添加到DOM中，并让其可见
-    var $todolist = $('#todo-template').clone().attr('id','').addClass('active').show()
+    var $todolist = $('#todo-template').clone().attr('id','').addClass('active')
+    var currentFilter = $('.selected').attr('id')
+    console.log(currentFilter)
+    if (currentFilter!=="completed") {
+      $todolist.show()
+    }
     $todolist.find('p').text(task)
     $('#todolist-all').append($todolist);
     $('#new-todo').val("");
