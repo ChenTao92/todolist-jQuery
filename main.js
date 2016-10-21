@@ -2,7 +2,7 @@
 * @Author: taochen
 * @Date:   2016-10-14 18:46:43
 * @Last Modified by:   taochen
-* @Last Modified time: 2016-10-21 19:16:43
+* @Last Modified time: 2016-10-21 20:07:01
 */
 
 var counter = 0;
@@ -70,20 +70,21 @@ $('#new-todo').keydown(function (evt) {
 
     //点击checkbox切换这个todo的完成状态
     $todolist.find('input').click(function(evt){
-      if ($(this).parent().hasClass('active')) {
-        $(this).parent().removeClass('active').addClass('completed');
+      var checkTodo = $(this).parent()
+      if (checkTodo.hasClass('active')) {
+        checkTodo.removeClass('active').addClass('completed');
         if($('#active').hasClass('selected')){
-          $(this).parent().hide();
+          checkTodo.hide();
         }
         var timestamp = moment().format('lll');
-        $(this).parent().find('.timestamp').text(timestamp)
+        checkTodo.find('.timestamp').text(timestamp)
         counter--;
       } else {
-        $(this).parent().removeClass('completed').addClass('active');
+        checkTodo.removeClass('completed').addClass('active');
         if($('#completed').hasClass('selected')){
-          $(this).parent().hide();
+          checkTodo.hide();
         }
-        $(this).parent().find('.timestamp').text('')
+        checkTodo.find('.timestamp').text('')
         counter++;
       }
       if (counter > 1) {
@@ -99,12 +100,11 @@ $('#new-todo').keydown(function (evt) {
       var $p = $(this)
       var text = $p.text()
       $p.text('')
-      $input = $('<input/>').addClass('todo-editing')
+      var $input = $('<input/>').addClass('todo-editing')
       $input.val(text).appendTo($p)
       $input.focus()
 
       $input.on('blur keydown',function(evt){
-        console.log(evt.which)
         if (evt.which === 0 || evt.which === 13) {
           var text = $input.val()
           $p.text(text)
@@ -113,8 +113,6 @@ $('#new-todo').keydown(function (evt) {
       })      
     })
     
-
-
   }
 })
 
