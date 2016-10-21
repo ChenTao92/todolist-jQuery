@@ -2,10 +2,11 @@
 * @Author: taochen
 * @Date:   2016-10-14 18:46:43
 * @Last Modified by:   taochen
-* @Last Modified time: 2016-10-21 18:23:31
+* @Last Modified time: 2016-10-21 18:48:31
 */
 
 var counter = 0;
+moment.locale('zh-cn');//moment-with-locales.js全局设置语言为中文
 
 // 按下Enter键添加todo事项
 $('#new-todo').keydown(function (evt) {
@@ -26,13 +27,12 @@ $('#new-todo').keydown(function (evt) {
 
 
     // 选出模板，克隆一份添加到DOM中，并让其可见
-    var $todolist = $('#todo-template').clone().attr('id','').addClass('active')
-    var currentFilter = $('.selected').attr('id')
-    console.log(currentFilter)
+    var $todolist = $('#todo-template').clone().attr('id','').addClass('active');
+    var currentFilter = $('.selected').attr('id');
     if (currentFilter!=="completed") {
-      $todolist.show()
+      $todolist.show();
     }
-    $todolist.find('p').text(task)
+    $todolist.find('p').text(task);
     $('#todolist-all').append($todolist);
     $('#new-todo').val("");
     counter++;
