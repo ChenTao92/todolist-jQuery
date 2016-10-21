@@ -2,7 +2,7 @@
 * @Author: taochen
 * @Date:   2016-10-14 18:46:43
 * @Last Modified by:   taochen
-* @Last Modified time: 2016-10-21 18:48:31
+* @Last Modified time: 2016-10-21 19:16:43
 */
 
 var counter = 0;
@@ -148,6 +148,9 @@ $('#completed').click(function(){
 // 删除所有完成的事项
 $('#clear-completed').click(function(){
   $('.completed').remove();
+  if (counter === 0) {
+    $('#todolist-filter').hide();
+  }
 })
 
 
