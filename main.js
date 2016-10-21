@@ -2,18 +2,27 @@
 * @Author: taochen
 * @Date:   2016-10-14 18:46:43
 * @Last Modified by:   taochen
-* @Last Modified time: 2016-10-21 23:49:57
+* @Last Modified time: 2016-10-22 00:53:15
 */
 
 var counter = 0;
 function getTimestamp() {
   var today = new Date()
   var year = today.getFullYear()
-  var month = today.getMonth() + 1
+  var month = today.getMonth()+1
   var day = today.getDate()
   var hour = today.getHours()
   var minute = today.getMinutes()
   var second = today.getSeconds()
+  if(month.toString().length === 1) {
+    month = "0" + month
+  }
+  if(day.toString().length === 1) {
+    day = "0" + day
+  }
+  if(hour.toString().length === 1) {
+    hour = "0" + hour
+  }
   if(minute.toString().length === 1) {
     minute = "0" + minute
   }
