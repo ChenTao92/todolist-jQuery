@@ -2,11 +2,26 @@
 * @Author: taochen
 * @Date:   2016-10-14 18:46:43
 * @Last Modified by:   taochen
-* @Last Modified time: 2016-10-21 20:07:01
+* @Last Modified time: 2016-10-21 23:49:57
 */
 
 var counter = 0;
-moment.locale('zh-cn');//moment-with-locales.js全局设置语言为中文
+function getTimestamp() {
+  var today = new Date()
+  var year = today.getFullYear()
+  var month = today.getMonth() + 1
+  var day = today.getDate()
+  var hour = today.getHours()
+  var minute = today.getMinutes()
+  var second = today.getSeconds()
+  if(minute.toString().length === 1) {
+    minute = "0" + minute
+  }
+  if(second.toString().length === 1) {
+    second = "0" + second
+  }
+  return year + "-" + month + "-" + day + " " + hour + ":" + minute+ ":" + second
+}
 
 // 按下Enter键添加todo事项
 $('#new-todo').keydown(function (evt) {
@@ -76,8 +91,7 @@ $('#new-todo').keydown(function (evt) {
         if($('#active').hasClass('selected')){
           checkTodo.hide();
         }
-        var timestamp = moment().format('lll');
-        checkTodo.find('.timestamp').text(timestamp)
+        checkTodo.find('.timestamp').text(getTimestamp());
         counter--;
       } else {
         checkTodo.removeClass('completed').addClass('active');
@@ -150,6 +164,4 @@ $('#clear-completed').click(function(){
     $('#todolist-filter').hide();
   }
 })
-
-
 
